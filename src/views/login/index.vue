@@ -15,6 +15,7 @@
 
 <script lang="ts" setup>
 import LoginBanner from "./comps/banner.vue";
+import LoginForm from "./comps/login-form.vue";
 
 </script>
 
@@ -58,6 +59,7 @@ import LoginBanner from "./comps/banner.vue";
     margin-right: 4px;
     margin-left: 4px;
     font-size: 20px;
+    color: var(--color-fill-1);
   }
 }
 </style>

@@ -4,8 +4,8 @@
       <a-carousel class="carousel" animation-name="fade">
         <a-carousel-item v-for="item in carouselItem" :key="item.slogan">
           <div :key="item.slogan" class="carousel-item">
-            <div class="carousel-title">{{ item.slogan }}</div>
-            <div class="carousel-sub-title">{{ item.subSlogan }}</div>
+            <div class="carousel-title">{{ $t(`${item.slogan}`) }}</div>
+            <div class="carousel-sub-title">{{ $t(`${item.subSlogan}`) }}</div>
             <img class="carousel-image" :src="item.image" />
           </div>
         </a-carousel-item>
@@ -17,6 +17,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import bannerImage from '@/assets/images/login-banner.png';
+
 const carouselItem = ref([
   {
     slogan: 'login.banner.slogan1',
