@@ -7,6 +7,7 @@ import '@arco-design/web-vue/dist/arco.css';
 import ii8n from './local';
 import store from './store';
 import './mock';
+import './assets/global.less';
 
 const app = createApp(App);
 

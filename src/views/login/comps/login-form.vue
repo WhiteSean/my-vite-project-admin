@@ -52,9 +52,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { LoginData } from '@/api/user';
 import useLoading from '@/hooks/loading';
 import useUserStore from '@/store/modules/user';
+import type { LoginData } from '@/types/user/type';
 import type { ValidatedError } from '@arco-design/web-vue/es/form/interface';
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -69,13 +69,13 @@ const { loading, setLoading } = useLoading();
 const userStore = useUserStore();
 const router = useRouter();
 
-const handleSubmit = async ({ errors, values }: { errors: Record<string, ValidatedError> | undefined; values: LoginData }) => {
+const handleSubmit = async ({ values, errors }: { values: Record<string, any> ; errors: Record<string, ValidatedError> | undefined}) => {
 
   if (errors) return;
   setLoading(true);
   try {
-    await userStore.login(values);
-
+    await userStore.login(values as LoginData);
+    // todo 页面跳转
   } catch (err) {
     errorMessage.value = (err as Error).message;
   } finally {

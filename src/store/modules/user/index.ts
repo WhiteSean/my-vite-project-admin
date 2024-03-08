@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { type UserInfo } from "./type";
 import type { LoginData } from "@/types/user/type";
 import service from "@/request/service";
+import { clearToken, setToken } from "@/untils/auth";
 const useUserStore = defineStore('user', {
   state: (): UserInfo => ({
     name: '',
@@ -30,9 +31,10 @@ const useUserStore = defineStore('user', {
     async login(loginForm: LoginData) {
       try {
         const res = await service.userLogin(loginForm);
-        debugger;
+        setToken(res.data.token);
       } catch (err) {
         // 清除token
+        clearToken();
       }
     }
   }
