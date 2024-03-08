@@ -1,7 +1,8 @@
 export default {
-  path: 'dashboard',
+  path: '/dashboard',
   name: 'dashboard',
   component: () => import('@/views/dashboard/index.vue'),
+  redirect: 'workplace',
   meta: {
     locale: 'menu.dashboard',
     requiresAuth: true,
@@ -9,7 +10,7 @@ export default {
   },
   children: [
     {
-      path: 'workplace',
+      path: '/workplace',
       name: 'workplace',
       component: () => import('@/views/dashboard/workplace/index.vue'),
       meta: {

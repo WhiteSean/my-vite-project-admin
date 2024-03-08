@@ -75,7 +75,8 @@ const handleSubmit = async ({ values, errors }: { values: Record<string, any> ; 
   setLoading(true);
   try {
     await userStore.login(values as LoginData);
-    // todo 页面跳转
+    // 页面跳转
+    router.push({ name: 'workplace' });
   } catch (err) {
     errorMessage.value = (err as Error).message;
   } finally {

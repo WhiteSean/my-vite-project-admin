@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
+import Dashboard from './dashboard';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,8 +16,16 @@ const router = createRouter({
         title: '',
         requiresAuth: false,
       },
+    },
+    {
+      name: 'root',
+      path: '/',
+      component: () => import('@/views/layout/layout.vue'),
+      children: [
+        Dashboard
+      ]
     }
   ]
-})
+});
 
-export default router
+export default router;
